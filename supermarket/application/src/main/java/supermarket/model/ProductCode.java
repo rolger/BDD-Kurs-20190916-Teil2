@@ -6,7 +6,7 @@ public class ProductCode {
 
     private String code;
 
-    public static ProductCode buildNew(String code) {
+    public static ProductCode buildFromBarcode(String code) {
         return new ProductCode(code);
     }
 

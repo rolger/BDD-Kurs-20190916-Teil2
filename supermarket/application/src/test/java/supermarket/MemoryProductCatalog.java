@@ -1,11 +1,11 @@
 package supermarket;
 
+import supermarket.model.ICatalog;
 import supermarket.model.Product;
 import supermarket.model.ProductCode;
 
 import java.util.Collection;
 import java.util.HashMap;
-
 
 public class MemoryProductCatalog implements ICatalog {
     private HashMap<ProductCode, Product> products = new HashMap<>();
@@ -17,12 +17,8 @@ public class MemoryProductCatalog implements ICatalog {
         return products.get(number);
     }
 
-    public void add(Product product) {
+    void add(Product product) {
         products.put(product.getCode(), product);
-    }
-
-    public void addAll(Collection<Product> additionalProducts) {
-        additionalProducts.forEach(this::add);
     }
 
 }

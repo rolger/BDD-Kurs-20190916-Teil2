@@ -1,19 +1,18 @@
 package supermarket.checkout;
 
-import supermarket.MemoryProductCatalog;
 import supermarket.model.*;
 
 import java.util.List;
 
 public class CashRegister {
 
-    private final MemoryProductCatalog catalog;
+    private final ICatalog catalog;
 
-    public CashRegister(MemoryProductCatalog catalog) {
+    public CashRegister(ICatalog catalog) {
         this.catalog = catalog;
     }
 
-    public Receipt checksOutArticlesFrom(ShoppingCart theCart) {
+    Receipt checkoutArticlesFrom(ShoppingCart theCart) {
         Receipt receipt = new Receipt();
 
         List<Article> articles = theCart.getArticles();

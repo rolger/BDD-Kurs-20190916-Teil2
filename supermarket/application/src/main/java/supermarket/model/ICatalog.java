@@ -1,10 +1,10 @@
-package supermarket;
+package supermarket.model;
 
 import supermarket.model.Product;
 import supermarket.model.ProductCode;
 
 public interface ICatalog {
 
-    public Product getProductByNumber(final ProductCode number);
+    Product getProductByNumber(final ProductCode number);
 
 }

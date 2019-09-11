@@ -1,8 +1,0 @@
-This is your receipt from 2019-09-17
-
-                                     EUR
-Apfel                               0,68
-Schwarzbrot                         2,49
-Milch                               1,01
-
-Total:                              4,18
