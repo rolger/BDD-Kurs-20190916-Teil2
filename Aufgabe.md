@@ -2,7 +2,9 @@
 
 Ihr implementiert eine Applikation, welche Abläufe in einem Supermarkt unterstützt.
 
-Der Product Owner hat eine neue Idee, er möchte, dass die Applikation auch Angebote unterstützt.
+Der Product Owner hat eine neue Idee. Er möchte, dass die Applikation auch Angebote unterstützt.
+
+*“Wir wünschen uns, dass unsere Kunden öfter zu uns einkaufen kommen. Deswegen wollen wir in unserem Supermarkt “BEST SHOPPING” verschiedene Angebote für unsere Produkte verwalten und diese bestmöglich vermarketen. Angebote müssen für die Kunden transparent und nachvollziehbar dargestellt werden.”*
 
 Es gibt ein Akzeptanztest Projekt für die Umsetzung.
 
