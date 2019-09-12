@@ -1,8 +1,8 @@
 # Supermarkt Kata
 
-Ihr implementiert eine Applikation, welche Abläufe in einem Supermarkt unterstützt.
+Ihr implementiert eine Applikation, welche Abläufe in einem Supermarkt unterstützt. Bisher können wir die Waren eines Kunden scannen und eine Rechnung erstellen.
 
-Der Product Owner hat eine neue Idee. Er möchte, dass die Applikation auch Angebote unterstützt.
+Die Aufgabe ist die bestehende Funktionalität zu erweitern. Der Product Owner hat eine neue Idee. Er möchte, dass die Applikation auch Angebote unterstützt:
 
 *“Wir wünschen uns, dass unsere Kunden öfter zu uns einkaufen kommen. Deswegen wollen wir in unserem Supermarkt “BEST SHOPPING” verschiedene Angebote für unsere Produkte verwalten und diese bestmöglich vermarketen. Angebote müssen für die Kunden transparent und nachvollziehbar dargestellt werden.”*
 
