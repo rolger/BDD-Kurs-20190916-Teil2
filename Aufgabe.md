@@ -31,6 +31,6 @@ Du solltest ein Grundverständnis haben
 * mache die Tests rot
 
 ---
-## Aufgabe 3 - Implementiere die neuen Features
+## Aufgabe 3 - Implementiere das neue Feature
 * am besten mit TDD
 * arbeite vor allem **in kleinen Schritten** d.h. nicht alle Akzeptanztest auf einmal
