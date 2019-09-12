@@ -7,4 +7,4 @@ There is an existing application and you find the source code in this repository
 The existing application should be enhanced with some new features. There are detailed instructions to hand it out to your participants. They are available in the following languages:
 
 - English: [Tasks](Tasks.md)
-- German: [Aufgaben](Aufgaben.md)
+- German: [Aufgaben](Aufgabe.md)
