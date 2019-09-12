@@ -14,25 +14,22 @@ Es gibt ein Akzeptanztest Projekt für die Umsetzung.
 * arbeite **in kleinen Schritten**
 
 ---
+## Aufgabe 1 - Die Stories und Akzeptanzkriterien beschreiben
+* welche Stories lassen sich aus den Epik ableiten (diskutiere mit dem PO)
+* welche Examples beschreiben die Akzeptanzkriterien ausreichend
 
-## Aufgabe 0 - Mit dem bestehenden Code vertraut machen
+---
+## Aufgabe 2 - Mit dem bestehenden Code vertraut machen
 Du solltest ein Grundverständnis haben 
 * vom bestehenden DomainModel und dem unterstützten Prozessen
 * von der Infrastruktur und wie der Code aufgebaut ist
 * von den bestehenden Unit Tests
 
 ---
-
-## Aufgabe 1 - Die Stories und Akzeptanzkriterien beschreiben
-* welche Stories lassen sich aus den Epik ableiten (diskutiere mit dem PO)
-* welche Examples beschreiben die Akzeptanzkriterien ausreichend
-
----
-
-## Aufgabe 2 - Implementiere die Akzeptanztest mit Cucumber
+## Aufgabe 3 - Implementiere die Akzeptanztest mit Cucumber
 * mache die Tests rot
 
 ---
-## Aufgabe 3 - Implementiere das neue Feature
+## Aufgabe 4 - Implementiere das neue Feature
 * am besten mit TDD
 * arbeite vor allem **in kleinen Schritten** d.h. nicht alle Akzeptanztest auf einmal
