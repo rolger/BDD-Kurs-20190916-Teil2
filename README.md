@@ -1,13 +1,10 @@
 # BDD Training Part-2 
-This kata is inspired by https://github.com/emilybache/SupermarketReceipt-Refactoring-Kata and https://github.com/paulroho/SupermarketKata. 
+This kata is inspired by Emily's and Paul's katas ([SupermarketReceipt-Refactoring-Kata](https://github.com/emilybache/SupermarketReceipt-Refactoring-Kata) and [SupermarketKata](https://github.com/paulroho/SupermarketKata)).Both katas refer to some katas at http://codekata.com. 
 
+## The Supermarket Application
+There is an existing application and you find the source code in this repository.
 
-## The legacy code
-Your application is a supermarket. We can the checkout process via our service class. There are some integration tests 
-to document the process at the supermarket checkout counter.  
+The existing application should be enhanced with some new features. There are detailed instructions to hand it out to your participants. They are available in the following languages:
 
-### Acceptance Tests
-The acceptance tests are located in a separate sub-project. The implementation of the tests is missing. 
-
-
-https://github.com/paulroho/SupermarketKata
+- English: [Tasks](Tasks.md)
+- German: [Aufgaben](Aufgaben.md)
