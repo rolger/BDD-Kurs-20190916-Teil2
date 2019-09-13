@@ -1,6 +1,7 @@
 package supermarket.model;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Money {
@@ -36,7 +37,7 @@ public class Money {
     }
 
     public String format() {
-        return String.format("%.2f", value);
+        return String.format(Locale.GERMAN, "%.2f", value);
     }
 
     @Override
