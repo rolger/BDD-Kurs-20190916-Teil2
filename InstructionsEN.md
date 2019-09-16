@@ -21,7 +21,7 @@ Somebody created already an acceptance test project, to setup the infrastructure
 
 ---
 ## Exercise 1 - Get in touch with the existing project
-* Browse through the code and look at the model and it's services
+* Browse through the code and look at the model and its services
 * Understand how the project structure looks like
 * Run the existing Unit Tests and look at the code
 
