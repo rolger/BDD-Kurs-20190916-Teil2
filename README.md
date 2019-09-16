@@ -8,4 +8,5 @@ There is an existing application and you find the source code in this repository
 
 The existing application should be enhanced with some new features. There are detailed instructions to hand it out to your participants. They are available in the following languages:
 
-- German: [Aufgaben](Aufgabe.md)
+- [English instructions](Instructions EN.md)
+- [German instructions](Instructions DE.md)
