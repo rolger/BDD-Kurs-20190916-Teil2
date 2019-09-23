@@ -22,4 +22,7 @@ public class Receipt {
         return new ArrayList<>(items);
     }
 
+    public void addDiscount(Offering offering, Money discount) {
+        items.add(new ReceiptItem(offering.getText(), null, 0.0, discount));
+    }
 }

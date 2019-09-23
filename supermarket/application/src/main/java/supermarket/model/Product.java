@@ -5,6 +5,7 @@ public class Product {
     private final String name;
     private final Money basePrice;
     private final Unit unit;
+    private Offering offering;
 
     public Product(ProductCode number, String name, Money basePrice) {
         this(number, name, Unit.PIECE, basePrice);
@@ -31,5 +32,23 @@ public class Product {
 
     public Unit getUnit() {
         return unit;
+    }
+
+    public Offering getOffering() {
+        return offering;
+    }
+
+    public void setOffering(Offering offering) {
+        if (offering.matchesWithProductUnit(unit)) {
+            this.offering = offering;
+        }
+    }
+
+    public Money calculateDiscount(Money basePrice, Article article) {
+        return offering.calculateDiscount(basePrice, article);
+    }
+
+    public boolean hasOffering() {
+        return offering != null;
     }
 }

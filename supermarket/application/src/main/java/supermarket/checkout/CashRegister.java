@@ -20,6 +20,11 @@ public class CashRegister {
             final Product product = catalog.getProductByNumber(article.getId());
             Money price = product.getBasePrice().multiply(article.getQuantity());
             receipt.addItem(product, article.getQuantity(), price);
+
+            if (product.hasOffering() ) {
+                Money discount = product.calculateDiscount(product.getBasePrice(), article);
+                receipt.addDiscount(product.getOffering(), discount);
+            }
         }
 
         return receipt;

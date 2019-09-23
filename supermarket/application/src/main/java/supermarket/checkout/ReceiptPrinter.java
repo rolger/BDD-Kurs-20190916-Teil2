@@ -1,7 +1,5 @@
 package supermarket.checkout;
 
-import org.apache.commons.lang3.StringUtils;
-import supermarket.model.ICatalog;
 import supermarket.model.Receipt;
 import supermarket.model.ReceiptItem;
 import supermarket.model.Unit;
@@ -49,24 +47,32 @@ public class ReceiptPrinter {
         nextLine(receiptBuilder);
 
         for (ReceiptItem item : receipt.getItems()) {
-            String article = item.getText();
-            article += " x ";
-            article += formatQuantity(item);
-            article += " ";
-            article += formatUnits(item);
-
-            String price = item.getTotalPrice().format();
-
-            receiptBuilder.append(article);
-            receiptBuilder.append(withLeftPadding(article.length(), price));
+            String itemLine = formatLine(item);
+            receiptBuilder.append(itemLine);
+            receiptBuilder.append(withLeftPadding(itemLine.length(), item.getTotalPrice().format()));
             nextLine(receiptBuilder);
         }
+    }
+
+    private String formatLine(ReceiptItem item) {
+        String itemLine = item.getText();
+        if (shouldQuantityBePrinted(item)) {
+            itemLine += " x ";
+            itemLine += formatQuantity(item);
+            itemLine += " ";
+            itemLine += formatUnits(item);
+        }
+        return itemLine;
+    }
+
+    private boolean shouldQuantityBePrinted(ReceiptItem item) {
+        return item.getQuantity() > 0 && item.getUnit() != null;
     }
 
     private String formatQuantity(ReceiptItem item) {
         return item.getUnit() == Unit.KG ?
                 format(Locale.GERMAN, "%s", item.getQuantity()) :
-                format(Locale.GERMAN, "%d", (int)item.getQuantity());
+                format(Locale.GERMAN, "%d", (int) item.getQuantity());
     }
 
     private String formatUnits(ReceiptItem item) {

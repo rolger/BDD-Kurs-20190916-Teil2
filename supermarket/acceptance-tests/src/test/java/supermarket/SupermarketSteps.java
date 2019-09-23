@@ -33,7 +33,12 @@ public class SupermarketSteps {
     }
 
     @Given("My shop (.*) offers this discounts")
-    public void my_shop_offers_this_discounts(String shopName, io.cucumber.datatable.DataTable dataTable) {
+    public void my_shop_offers_this_discounts(String shopName, List<OfferingInfo> offeringInfoList) {
+        offeringInfoList.forEach(offeringInfo -> {
+                    Product p = catalog.getProductByName(offeringInfo.getProduct());
+                    p.setOffering(new Buy2PayOnly1Offering());
+                }
+        );
     }
 
     private ProductCode createRandomProductCode() {
