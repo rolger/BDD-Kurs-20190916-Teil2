@@ -1,8 +1,8 @@
 package supermarket.model;
 
 public class ProductInfo {
-    private final String unit;
     private String product;
+    private final String unit;
     private Double price;
 
     public ProductInfo(String product, String unit, Double price) {

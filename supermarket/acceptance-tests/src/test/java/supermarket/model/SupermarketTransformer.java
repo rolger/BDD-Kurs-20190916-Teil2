@@ -34,5 +34,13 @@ public class SupermarketTransformer implements TypeRegistryConfigurer {
                         }
                 )
         );
+
+        typeRegistry.defineDataTableType(new DataTableType(OfferingInfo.class,
+                        (Map<String, String> row) -> {
+                            return new OfferingInfo(row.get("product"), row.get("discount"));
+                        }
+                )
+        );
+
     }
 }
