@@ -19,7 +19,7 @@ Feature: buy article with offerings
 Your purchase from 2019-09-17
 ----------------------------------------
                                      EUR
-bread                               4,98
+bread x 2.0 kg                      4,98
 ----------------------------------------
 Total :                             4,98
 """
@@ -40,9 +40,9 @@ Total :                             4,98
 Your purchase from 2019-09-17
 ----------------------------------------
                                      EUR
-apple                               0,66
-bread                               2,49
-milk                                2,02
+apple x 0.73 kg                     0,66
+bread x 1.0 kg                      2,49
+milk x 2                            2,02
 ----------------------------------------
 Total :                             5,17
 """
