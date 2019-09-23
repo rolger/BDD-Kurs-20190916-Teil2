@@ -1,4 +1,4 @@
-Feature: buy article with offerings
+Feature: buy article without offerings
 
   Background: create all products
     Given My shop "BEST SHOPPING" sells this products

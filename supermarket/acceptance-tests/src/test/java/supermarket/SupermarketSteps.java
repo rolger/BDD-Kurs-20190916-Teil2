@@ -29,6 +29,10 @@ public class SupermarketSteps {
         );
     }
 
+    @Given("My shop (.*) offers this discounts")
+    public void my_shop_offers_this_discounts(String shopName, io.cucumber.datatable.DataTable dataTable) {
+    }
+
     private ProductCode createRandomProductCode() {
         return buildFromBarcode(leftPad(Integer.toString(new Random().nextInt(10000)), 5, "0"));
     }
