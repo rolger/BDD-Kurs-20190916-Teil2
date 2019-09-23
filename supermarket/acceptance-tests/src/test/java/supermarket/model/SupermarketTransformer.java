@@ -1,4 +1,4 @@
-package supermarket;
+package supermarket.model;
 
 
 import io.cucumber.core.api.TypeRegistry;
@@ -8,7 +8,7 @@ import io.cucumber.datatable.DataTableType;
 import java.util.Locale;
 import java.util.Map;
 
-public class ProductInfoTransformer implements TypeRegistryConfigurer {
+public class SupermarketTransformer implements TypeRegistryConfigurer {
     public Locale locale() {
         return Locale.ENGLISH;
     }
@@ -20,6 +20,16 @@ public class ProductInfoTransformer implements TypeRegistryConfigurer {
                             Double price = Double.parseDouble(row.get("price"));
 
                             return new ProductInfo(product, price);
+                        }
+                )
+        );
+
+        typeRegistry.defineDataTableType(new DataTableType(ArticleInfo.class,
+                        (Map<String, String> row) -> {
+                            String product = row.get("product");
+                            Double price = Double.parseDouble(row.get("quantity"));
+
+                            return new ArticleInfo(product, price);
                         }
                 )
         );

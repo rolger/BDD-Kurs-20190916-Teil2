@@ -3,19 +3,16 @@ package supermarket;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.commons.lang3.StringUtils;
-import org.assertj.core.api.Assertions;
 import supermarket.checkout.CashRegister;
 import supermarket.checkout.CheckoutService;
-import supermarket.model.Money;
-import supermarket.model.Product;
-import supermarket.model.ProductCode;
-import supermarket.model.ShoppingCart;
+import supermarket.model.*;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
 
+import static org.apache.commons.lang3.StringUtils.leftPad;
+import static org.assertj.core.api.Assertions.assertThat;
 import static supermarket.model.ProductCode.buildFromBarcode;
 
 public class SupermarketSteps {
@@ -24,30 +21,33 @@ public class SupermarketSteps {
     private MemoryProductCatalog catalog = new MemoryProductCatalog();
     private CheckoutService checkoutService;
 
-    @Given("My shop is called (.*)$")
-    public void my_shop_is_called(String shopName) {
-         checkoutService = new CheckoutService(shopName, catalog, new ShoppingCart());
-    }
-
-    @Given("^This products in my catalog$")
-    public void this_Products(List<ProductInfo> productInfoList) {
-        productInfoList.forEach(productInfo -> {
-            catalog.add(new Product(createRandomProductCode(), productInfo.getProduct(), new Money(productInfo.getPrice())));
-        });
+    @Given("My shop (.*) sells this products")
+    public void my_shop_sells_this_products(String shopName, List<ProductInfo> productInfoList) {
+        checkoutService = new CheckoutService(shopName, catalog, new ShoppingCart());
+        productInfoList.forEach(productInfo ->
+                catalog.add(new Product(createRandomProductCode(), productInfo.getProduct(), new Money(productInfo.getPrice())))
+        );
     }
 
     private ProductCode createRandomProductCode() {
-        return buildFromBarcode(StringUtils.leftPad(Integer.toString(new Random().nextInt(10000)), 5, "0"));
+        return buildFromBarcode(leftPad(Integer.toString(new Random().nextInt(10000)), 5, "0"));
     }
 
     @Given("^I add (\\d+.\\d+) kg of (.*) to my cart$")
-    public void i_add_kg_of_Brot_to_my_cart(Double amount, String productName) {
-        checkoutService.onBarCode(getProductCode(productName), amount);
+    public void i_add_kg_to_my_cart(Double quantity, String productName) {
+        checkoutService.onBarCode(getProductCode(productName), quantity);
     }
 
     @Given("^I add (\\d+) pieces of (.*) to my cart$")
-    public void i_add_pieces_of_Milch_to_my_cart(Integer amount, String productName) {
-        checkoutService.onBarCode(getProductCode(productName), amount);
+    public void i_add_pieces_to_my_cart(Integer quantity, String productName) {
+        checkoutService.onBarCode(getProductCode(productName), quantity);
+    }
+
+    @Given("I add to my cart")
+    public void i_add_to_my_cart(List<ArticleInfo> articleInfoList) {
+        articleInfoList.forEach(articleInfo ->
+                checkoutService.onBarCode(getProductCode(articleInfo.getProduct()), articleInfo.getQuantity())
+        );
     }
 
     private String getProductCode(String productName) {
@@ -67,7 +67,7 @@ public class SupermarketSteps {
     public void i_want_to_see_the_check(String expectedReceipt) {
         final String receipt = checkoutService.printReceipt(new CashRegister(catalog), shoppingDate);
 
-        Assertions.assertThat(receipt).isEqualToIgnoringWhitespace(expectedReceipt);
+        assertThat(receipt).isEqualToIgnoringWhitespace(expectedReceipt);
     }
 
 }

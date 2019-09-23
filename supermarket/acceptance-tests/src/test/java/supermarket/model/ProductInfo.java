@@ -1,4 +1,4 @@
-package supermarket;
+package supermarket.model;
 
 public class ProductInfo {
     private String product;
