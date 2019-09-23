@@ -4,10 +4,12 @@ public class ReceiptItem {
     private final String text;
     private final double quantity;
     private final Money totalPrice;
+    private Unit unit;
 
-    public ReceiptItem(String text, double quantity, Money totalPrice) {
+    public ReceiptItem(String text, Unit unit, double quantity, Money totalPrice) {
         this.text = text;
         this.quantity = quantity;
+        this.unit = unit;
         this.totalPrice = totalPrice;
     }
 
@@ -23,4 +25,7 @@ public class ReceiptItem {
         return totalPrice;
     }
 
- }
+    public Unit getUnit() {
+        return unit;
+    }
+}

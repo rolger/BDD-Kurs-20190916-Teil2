@@ -17,9 +17,10 @@ public class SupermarketTransformer implements TypeRegistryConfigurer {
         typeRegistry.defineDataTableType(new DataTableType(ProductInfo.class,
                         (Map<String, String> row) -> {
                             String product = row.get("product");
+                            String unit = row.get("unit");
                             Double price = Double.parseDouble(row.get("price"));
 
-                            return new ProductInfo(product, price);
+                            return new ProductInfo(product, unit, price);
                         }
                 )
         );

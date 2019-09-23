@@ -1,10 +1,13 @@
 package supermarket.checkout;
 
 import org.apache.commons.lang3.StringUtils;
+import supermarket.model.ICatalog;
 import supermarket.model.Receipt;
 import supermarket.model.ReceiptItem;
+import supermarket.model.Unit;
 
 import java.time.LocalDate;
+import java.util.Locale;
 
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.repeat;
@@ -46,13 +49,28 @@ public class ReceiptPrinter {
         nextLine(receiptBuilder);
 
         for (ReceiptItem item : receipt.getItems()) {
-            String name = item.getText();
+            String article = item.getText();
+            article += " x ";
+            article += formatQuantity(item);
+            article += " ";
+            article += formatUnits(item);
+
             String price = item.getTotalPrice().format();
 
-            receiptBuilder.append(name);
-            receiptBuilder.append(withLeftPadding(name.length(), price));
+            receiptBuilder.append(article);
+            receiptBuilder.append(withLeftPadding(article.length(), price));
             nextLine(receiptBuilder);
         }
+    }
+
+    private String formatQuantity(ReceiptItem item) {
+        return item.getUnit() == Unit.KG ?
+                format(Locale.GERMAN, "%s", item.getQuantity()) :
+                format(Locale.GERMAN, "%d", (int)item.getQuantity());
+    }
+
+    private String formatUnits(ReceiptItem item) {
+        return item.getUnit() == Unit.KG ? "kg" : "";
     }
 
     private void printFooter(Receipt receipt, StringBuilder receiptBuilder) {

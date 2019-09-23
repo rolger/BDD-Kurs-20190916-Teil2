@@ -15,7 +15,7 @@ public class Receipt {
     }
 
     public void addItem(Product p, double quantity, Money totalPrice) {
-        items.add(new ReceiptItem(p.getName(), quantity, totalPrice));
+        items.add(new ReceiptItem(p.getName(), p.getUnit(), quantity, totalPrice));
     }
 
     public List<ReceiptItem> getItems() {

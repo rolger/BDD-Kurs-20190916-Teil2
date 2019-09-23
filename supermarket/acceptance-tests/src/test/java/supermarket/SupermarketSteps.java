@@ -25,7 +25,10 @@ public class SupermarketSteps {
     public void my_shop_sells_this_products(String shopName, List<ProductInfo> productInfoList) {
         checkoutService = new CheckoutService(shopName, catalog, new ShoppingCart());
         productInfoList.forEach(productInfo ->
-                catalog.add(new Product(createRandomProductCode(), productInfo.getProduct(), new Money(productInfo.getPrice())))
+                catalog.add(new Product(createRandomProductCode(),
+                        productInfo.getProduct(),
+                        productInfo.asUnit(),
+                        new Money(productInfo.getPrice())))
         );
     }
 

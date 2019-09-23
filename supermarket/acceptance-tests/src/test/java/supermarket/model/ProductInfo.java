@@ -1,11 +1,13 @@
 package supermarket.model;
 
 public class ProductInfo {
+    private final String unit;
     private String product;
     private Double price;
 
-    public ProductInfo(String product, Double price) {
+    public ProductInfo(String product, String unit, Double price) {
         this.product = product;
+        this.unit = unit;
         this.price = price;
     }
 
@@ -17,4 +19,16 @@ public class ProductInfo {
         return price;
     }
 
+    public String getUnit() {
+        return unit;
+    }
+
+    public Unit asUnit() {
+        switch (unit) {
+            case "kg":
+                return Unit.KG;
+            default:
+                return Unit.PIECE;
+        }
+    }
 }
